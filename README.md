@@ -13,7 +13,7 @@ Hanging around with nothing to do? Take a jab a guessing the correct word below!
 
 ## MVP 
 
-* Using the DOM and Vanilla Javascript.
+* Using the DOM, CSS, HTML and Vanilla Javascript.
 * Code a playing area  with each letter of the alphabet, and an empty gallow.
 * Show the amount of letters to guess.
 * Remove each box letter as it is clicked
