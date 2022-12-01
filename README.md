@@ -8,7 +8,8 @@ Hanging around with nothing to do? Take a jab a guessing the correct word below!
 ##### Based on the category of FOOD, guess the hidden word by clicking on the box letters below. Watch the word reveal with each correct guess. Too many incorrect guesses will result in a Hangman.
 
 
-![hangman sketch.]![hangmanSketch](https://user-images.githubusercontent.com/115594817/204952261-9b39c69f-e519-4050-8443-7369dc7cc982.jpg)
+![hangman sketch.]<img width="475" alt="hangman" src="https://user-images.githubusercontent.com/115594817/204955713-218bf1db-d239-478d-bec1-5e5af9d8c205.png">
+
 
 
 ## MVP 
