@@ -39,6 +39,7 @@ max-height: 100%;
   grid-row-gap: 10px;
   text-align: center;
   max-width: 30%; 
+  cursor: pointer;
   
 }
 .letter{
@@ -54,4 +55,3 @@ max-height: 100%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-
