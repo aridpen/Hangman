@@ -1,8 +1,23 @@
+//name all JS variables
+
 let letter = document.querySelector(".letter");
+let gallow = document.querySelector(".gallow-container");
+let underscores = document.querySelector(".guessArea");
+let startButton = document.querySelector(".startBtn");
+let playAgain = document.querySelector(".playAgain");
+let correct = document.querySelector(".rightLetter");
+let wrong = document.querySelector("wrongLetter");
 
 document.addEventListener("DOMContentLoaded", () => {
   //create at least 5 word options (array)
-  const words = ["taco", "marshmallow", "turducken", "ramen", "lasagna"];
+  const words = [
+    "taco",
+    "marshmallow",
+    "turducken",
+    "ramen",
+    "lasagna",
+    "chipotle",
+  ];
   let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
   // console.log(randomWord);
 

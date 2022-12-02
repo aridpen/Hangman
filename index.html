@@ -5,31 +5,27 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Hangman</h1>
-    <h3>Click A Leter To Reveal The Hidden Word!</h3>
-    <h2>Category: Food</h2>
-    <svg height="250" width="200" class="gallow-container">
-      <!-- line starts at 80 x axis and goes to 180 x axis, while staying on the y axis --> -->
-       <line x1="80" y1="40" x2="180" y2="40" />
-    </svg>
-   
-
-    <main class="container">
-       
-        <div id="screen">
-             <div class="letter"></div>
+    <div class="text">
+      <h1>Hangman</h1>
+      <h3>Click A Leter To Reveal The Hidden Word!</h3>
+      <h2>Category: Food</h2>
     </div>
-</main>
-    
+
+    <svg height="250" width="200" class="gallow-container">
+      <!-- line starts at 80 x axis and goes to 180 x axis, while staying on the y axis -->
+      <line x1="80" y1="40" x2="180" y2="40" />
+    </svg>
+
+    <div class="letter"></div>
+
+    <div class="container">
       <div class="guessArea">_ _ _ _ _ _ _</div>
       <div class="rightLetter">Right Letter</div>
       <div class="wrongLetter">Wrong Letter</div>
+      <button class="startBtn">Start</button>
+      <button class="playAgain">Play Again</button>
     </div>
-    <div>
-      <button>Start</button>
-      <button>Play Again</button>
-    </div>
-
   </body>
+
   <script src="./js/script.js"></script>
 </html>
