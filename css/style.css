@@ -1,0 +1,45 @@
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+}
+.gallow-container {
+  stroke: brown;
+  stroke-width: 5px;
+}
+.container{
+display:flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+width: 10vw;
+height: 10vw;
+max-width: 100%;
+max-height: 100%;
+}
+
+.letter{
+  color: red;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  text-align: center;
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+}
+/* .letterOptions {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
