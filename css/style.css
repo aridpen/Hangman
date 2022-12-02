@@ -29,19 +29,24 @@ max-width: 100%;
 max-height: 100%;
 } */
 
-.letter{
+.letter-container{
   color: red;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 30px;
-  grid-row-gap: 25px;
+  margin: 0 auto;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
   text-align: center;
+  max-width: 30%; 
+  
+}
+.letter{
   border: 1px solid black;
   width: 30px;
   height: 30px;
-}
 
+}
 /* .letterOptions {
   display: grid;
   grid-template-columns: repeat(9, 1fr);

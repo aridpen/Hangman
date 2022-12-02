@@ -1,12 +1,12 @@
 //name all JS variables
 
-let letter = document.querySelector(".letter");
+let letterContainer = document.querySelector(".letter-container");
 let gallow = document.querySelector(".gallow-container");
-let underscores = document.querySelector(".guessArea");
 let startButton = document.querySelector(".startBtn");
 let playAgain = document.querySelector(".playAgain");
 let correct = document.querySelector(".rightLetter");
 let wrong = document.querySelector("wrongLetter");
+let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 document.addEventListener("DOMContentLoaded", () => {
   //create at least 5 word options (array)
@@ -18,13 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
     "lasagna",
     "chipotle",
   ];
-  let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
-  // console.log(randomWord);
+  //random word choosen at random from the listed array of words
+  let randomWord = Math.floor(Math.random() * words.length);
+  console.log(randomWord);
 
-  for (let i = 0; i < 26; i++) {
+  //set up an empty array. for each word, make an empty space based off the length of randomWord each random word.
+  let answerUnderscore = [];
+  for (let i = 0; i < randomWord; i++) {
+    answerUnderscore[i] = "_";
+  }
+  console.log(answerUnderscore);
+
+  for (let i = 0; i < alphabet.length; i++) {
     const letterBoxes = document.createElement("div");
     letterBoxes.classList.add("letter");
-    letter.append(letterBoxes);
+    letterBoxes.textContent = alphabet[i];
+    letterContainer.append(letterBoxes);
   }
 
   //   generateGrid();
