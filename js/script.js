@@ -1,9 +1,8 @@
 //Dom selcectores
-
 let letterContainer = document.querySelector(".letter-container");
 let gallow = document.querySelector(".gallow-container");
-let startButton = document.querySelector(".startBtn");
-let playAgain = document.querySelector(".playAgain");
+const startButton = document.getElementById("#startBtn");
+const playAgain = document.querySelector(".playAgain");
 let correct = document.querySelector(".rightLetter");
 let wrong = document.querySelector("wrongLetter");
 let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -18,61 +17,41 @@ const words = [
   "chipotle",
 ];
 
-//random word choosen at random from the listed array of words
-let randomWord = Math.floor(Math.random() * words.length);
-// console.log(randomWord);
+let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
+let word = words[randomWord].split(""); //string method split turns word to an array of strings "T","A","C","O"
 
-//set up an empty array. for each word, make an empty space based off the length of randomWord each random word.
-let word = words[5].split(""); //string method split turns word to an array of strings "T","A","C","O"
-
-//foreach letter in word array, create a div and append to guess-container
 word.forEach((char) => {
+  //foreach letter (character) in word array create a div and append to guess-container
   const letterContainer = document.createElement("div");
   letterContainer.textContent = char;
-  letterContainer.classList.add("answer-letter", "hidden");
+  letterContainer.classList.add("answer-letter");
   const guessContainer = document.querySelector(".guess-container");
   guessContainer.append(letterContainer);
 });
 
-for (let i = 0; i < alphabet.length; i++) {
+alphabet.forEach((char) => {
   const letterBoxes = document.createElement("div");
   letterBoxes.classList.add("letter");
-  letterBoxes.textContent = alphabet[i];
+  letterBoxes.textContent = char;
   letterContainer.append(letterBoxes);
-}
-//if array contains the textContent of the clicked letter, toggle hidden off
-//when correct letter is clicked, letter will populate on underscores//itterate over a word
+});
 
-// alphabet.forEach(char => {
-//     const letterBoxes = document.createElement("div");
-//     letterBoxes.classList.add("letter");
-//     letterBoxes.textContent = char;
-//     letterContainer.append(letterBoxes);
-// })
-//letter[i]
-
-// function hideUI() {
-//   console.log("hideUI");
-// }
 let letters = document.querySelectorAll(".letter");
 
-// console.log(letters);
 function removeDOMElement(event) {
   event.target.remove();
 }
-//when block is clicked, letter is removed from the screen //classlist.remove
+
 letters.forEach((letter) => {
+  //when block is clicked, letter is removed from the screen
   letter.addEventListener("click", (e) => {
     e.preventDefault();
     removeDOMElement(e);
-
-    //check for win
-    //
-    // hideUI();
   });
 });
-//   generateGrid();
-// });
+
+//if array contains the textContent of the clicked letter, toggle hidden off
+//when correct letter is clicked, letter will populate on underscores//itterate over a word
 // create play area with underscores
 // start game
 // chose a random word each game

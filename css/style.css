@@ -16,9 +16,12 @@ body {
   stroke-width: 5px;
 }
 
-.hidden{
-  display:none;
-}
+/* .hidden{
+ text-decoration: wavy;
+ text-decoration-color: black;
+
+} */
+
 
 .letter-container{
   color: red;
@@ -42,10 +45,11 @@ body {
 
 .guess-container{
   justify-content: space-between;
-  max-width: 50%;
+  max-width: 23%;
   display:flex;
   margin: 0 auto;
   margin-bottom:20px;
+  
 }
 .answer-letter{
   display:flex;
@@ -53,7 +57,13 @@ body {
   align-items: flex-end;
   width: 60px;
   height:60px;
-  border-bottom: 1px solid red;
+  border-bottom: 4px solid black;
+}
+
+
+
+.btn-container{
+  margin-top: 30px;
 }
 /* .letterOptions {
   display: grid;
