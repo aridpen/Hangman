@@ -23,9 +23,9 @@ let randomWord = Math.floor(Math.random() * words.length);
 // console.log(randomWord);
 
 //set up an empty array. for each word, make an empty space based off the length of randomWord each random word.
-let word = words[5].split(""); //string method split turns word to an array of strings
-//foreach letter in word array, create a div and append to guess-container
+let word = words[5].split(""); //string method split turns word to an array of strings "T","A","C","O"
 
+//foreach letter in word array, create a div and append to guess-container
 word.forEach((char) => {
   const letterContainer = document.createElement("div");
   letterContainer.textContent = char;
@@ -41,6 +41,7 @@ for (let i = 0; i < alphabet.length; i++) {
   letterContainer.append(letterBoxes);
 }
 //if array contains the textContent of the clicked letter, toggle hidden off
+//when correct letter is clicked, letter will populate on underscores//itterate over a word
 
 // alphabet.forEach(char => {
 //     const letterBoxes = document.createElement("div");
@@ -59,15 +60,12 @@ let letters = document.querySelectorAll(".letter");
 function removeDOMElement(event) {
   event.target.remove();
 }
-
+//when block is clicked, letter is removed from the screen //classlist.remove
 letters.forEach((letter) => {
   letter.addEventListener("click", (e) => {
     e.preventDefault();
     removeDOMElement(e);
 
-    //when block is clicked, letter is removed from the screen //classlist.remove
-
-    //when correct letter is clicked, letter will populate on underscores//itterate over a word
     //check for win
     //
     // hideUI();
