@@ -8,7 +8,6 @@ let correct = document.querySelector(".rightLetter");
 let wrong = document.querySelector("wrongLetter");
 let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
-// document.addEventListener("DOMContentLoaded", () => {
 //create at least 5 word options (array)
 const words = [
   "taco",
@@ -21,14 +20,19 @@ const words = [
 
 //random word choosen at random from the listed array of words
 let randomWord = Math.floor(Math.random() * words.length);
-console.log(randomWord);
+// console.log(randomWord);
 
 //set up an empty array. for each word, make an empty space based off the length of randomWord each random word.
-let answerUnderscore = [];
-for (let i = 0; i < randomWord; i++) {
-  answerUnderscore[i] = "_";
-}
-console.log(answerUnderscore);
+let word = words[3].split(""); //string method split turns word to an array of strings
+//foreach letter in word array, create a div and append to guess-container
+
+word.forEach((char) => {
+  const letterContainer = document.createElement("div");
+  letterContainer.textContent = char;
+  letterContainer.classList.add("answer-letter", "hidden");
+  const guessContainer = document.querySelector(".guess-container");
+  guessContainer.append(letterContainer);
+});
 
 for (let i = 0; i < alphabet.length; i++) {
   const letterBoxes = document.createElement("div");
@@ -36,6 +40,8 @@ for (let i = 0; i < alphabet.length; i++) {
   letterBoxes.textContent = alphabet[i];
   letterContainer.append(letterBoxes);
 }
+//if array contains the textContent of the clicked letter, toggle hidden off
+
 // alphabet.forEach(char => {
 //     const letterBoxes = document.createElement("div");
 //     letterBoxes.classList.add("letter");
@@ -44,20 +50,27 @@ for (let i = 0; i < alphabet.length; i++) {
 // })
 //letter[i]
 
-function hideUI() {
-  console.log("hideUI");
-}
+// function hideUI() {
+//   console.log("hideUI");
+// }
 let letters = document.querySelectorAll(".letter");
 
 // console.log(letters);
+function removeDOMElement(event) {
+  event.target.remove();
+}
 
 letters.forEach((letter) => {
   letter.addEventListener("click", (e) => {
     e.preventDefault();
-    //when block is clicked, letter is removed fromt the screen
-    //when correct letter is clicked, letter will populate on underscores
+    removeDOMElement(e);
+
+    //when block is clicked, letter is removed from the screen //classlist.remove
+
+    //when correct letter is clicked, letter will populate on underscores//itterate over a word
+    //check for win
     //
-    hideUI();
+    // hideUI();
   });
 });
 //   generateGrid();
