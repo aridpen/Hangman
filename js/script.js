@@ -23,7 +23,7 @@ let randomWord = Math.floor(Math.random() * words.length);
 // console.log(randomWord);
 
 //set up an empty array. for each word, make an empty space based off the length of randomWord each random word.
-let word = words[3].split(""); //string method split turns word to an array of strings
+let word = words[5].split(""); //string method split turns word to an array of strings
 //foreach letter in word array, create a div and append to guess-container
 
 word.forEach((char) => {
