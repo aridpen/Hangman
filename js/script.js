@@ -1,5 +1,6 @@
 //Dom selcectores
 const letterContainer = document.querySelector(".letter-container");
+const textAnnouncer = document.querySelector(".text-announcer");
 const playAgain = document.querySelector(".playAgain");
 const correct = document.querySelector(".rightLetter");
 const wrong = document.querySelector("wrongLetter");
@@ -53,12 +54,13 @@ letters.forEach((letter) => {
     word.forEach((letter) => {
       //for each letter in word..
       if (letter === e.target.textContent) {
-        //if letter is === to the text content of the array
         const spans = document.querySelectorAll("span");
         spans.forEach((span) => {
-          //remove hidden class so that letter appears
+          //remove hidden class so that populated letter appears letter appears
           if (span.textContent === e.target.textContent) {
             span.classList.remove("hidden");
+            if (span.textContent === e.target.textContent)
+              textAnnouncer.textContent = `Letter ${span.textContent} is Correct!! Choose Another Letter.`;
           }
         });
         // e.target.classList.remove("hidden");
@@ -68,6 +70,7 @@ letters.forEach((letter) => {
     });
     removeDOMElement(e);
     //only allow 6 incorrect guesses
+
     //reset game with play again// window.location.reload() refreshes page back to beginning state.
     playAgain.addEventListener("click", function () {
       window.location.reload();

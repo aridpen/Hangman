@@ -65,6 +65,14 @@ body {
 .btn-container{
   margin-top: 30px;
 }
+
+.text-announcer{
+  font-size: 40px;
+}
+
+h1{
+  font-size: 50px;
+}
 /* .letterOptions {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
