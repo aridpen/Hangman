@@ -11,10 +11,7 @@ body {
   padding: 50px;
 
 }
-.gallow-container {
-  stroke: brown;
-  stroke-width: 5px;
-}
+
 
 /* .hidden{
  text-decoration: wavy;
@@ -32,7 +29,7 @@ body {
   grid-column-gap: 5px;
   grid-row-gap: 10px;
   text-align: center;
-  max-width: 30%; 
+  max-width: 25%; 
   cursor: pointer;
   
 }
@@ -48,7 +45,7 @@ body {
   max-width: 23%;
   display:flex;
   margin: 0 auto;
-  margin-bottom:20px;
+  margin-bottom:60px;
   
 }
 .answer-letter{
@@ -58,8 +55,11 @@ body {
   width: 60px;
   height:60px;
   border-bottom: 4px solid black;
+  margin: 0 15px 0 15px
 }
-
+ .hidden{
+  visibility: hidden;
+ }
 
 
 .btn-container{
