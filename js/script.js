@@ -1,9 +1,8 @@
 //Dom selcectores
 const letterContainer = document.querySelector(".letter-container");
 const textAnnouncer = document.querySelector(".text-announcer");
-const playAgain = document.querySelector(".playAgain");
-const correct = document.querySelector(".rightLetter");
-const wrong = document.querySelector("wrongLetter");
+const playAgain = document.querySelector(".play-again");
+const wrong = document.querySelector("wrong-letter");
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 //create at least 5 word options (array)
@@ -56,26 +55,31 @@ letters.forEach((letter) => {
       if (letter === e.target.textContent) {
         const spans = document.querySelectorAll("span");
         spans.forEach((span) => {
-          //remove hidden class so that populated letter appears letter appears
+          //remove hidden class so that populated letter appears letter
           if (span.textContent === e.target.textContent) {
             span.classList.remove("hidden");
-            if (span.textContent === e.target.textContent)
+            if (span.textContent === e.target.textContent) {
               textAnnouncer.textContent = `Letter ${span.textContent} is Correct!! Choose Another Letter.`;
+            }
           }
         });
-        // e.target.classList.remove("hidden");
       }
-      // console.log(`${letter} is letter.`);
-      // console.log(`${e.target.textContent} is target content.`);
-    });
-    removeDOMElement(e);
-    //only allow 6 incorrect guesses
 
-    //reset game with play again// window.location.reload() refreshes page back to beginning state.
-    playAgain.addEventListener("click", function () {
-      window.location.reload();
+      removeDOMElement(e);
+
+      // e.target.classList.remove("hidden");
     });
+    // console.log(`${letter} is letter.`);
+    // console.log(`${e.target.textContent} is target content.`);
   });
+  //only allow 6 incorrect guesses
+
+  //if player selects the wrong letter 6 times game ends
+});
+
+//reset game with play again// window.location.reload() refreshes page back to beginning state.
+playAgain.addEventListener("click", function () {
+  window.location.reload();
 });
 
 //if array contains the textContent of the clicked letter, toggle hidden off
