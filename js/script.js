@@ -1,9 +1,9 @@
 //Dom selcectores
-let letterContainer = document.querySelector(".letter-container");
+const letterContainer = document.querySelector(".letter-container");
 const playAgain = document.querySelector(".playAgain");
 const correct = document.querySelector(".rightLetter");
 const wrong = document.querySelector("wrongLetter");
-let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 //create at least 5 word options (array)
 const words = [
@@ -49,31 +49,35 @@ letters.forEach((letter) => {
   letter.addEventListener("click", (e) => {
     e.preventDefault();
     //If I click leter A, Check if letter is in the array
-    //if letter is in array. Append to the div that has array is for
+    //if letter is in array. Append to the div that has array letter
     word.forEach((letter) => {
       //for each letter in word..
       if (letter === e.target.textContent) {
-        //if letter is === to the text content of the
+        //if letter is === to the text content of the array
         const spans = document.querySelectorAll("span");
         spans.forEach((span) => {
+          //remove hidden class so that letter appears
           if (span.textContent === e.target.textContent) {
             span.classList.remove("hidden");
           }
         });
-        e.target.classList.remove("hidden");
+        // e.target.classList.remove("hidden");
       }
       // console.log(`${letter} is letter.`);
       // console.log(`${e.target.textContent} is target content.`);
     });
-
     removeDOMElement(e);
+    //only allow 6 incorrect guesses
+    //reset game with play again// window.location.reload() refreshes page back to beginning state.
+    playAgain.addEventListener("click", function () {
+      window.location.reload();
+    });
   });
 });
 
 //if array contains the textContent of the clicked letter, toggle hidden off
 //when correct letter is clicked, letter will populate on underscores//itterate over a word
 // create play area with underscores
-// start game
 // chose a random word each game
 // user guesses letter
 // remove wrong letter
