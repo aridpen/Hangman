@@ -39,7 +39,6 @@ alphabet.forEach((char) => {
   letterBoxes.textContent = char;
   letterContainer.append(letterBoxes);
 });
-
 let letters = document.querySelectorAll(".letter");
 function removeDOMElement(event) {
   event.target.remove();
@@ -49,35 +48,42 @@ function removeDOMElement(event) {
 letters.forEach((letter) => {
   letter.addEventListener("click", (e) => {
     e.preventDefault();
-    // console.log(e.path[0].innerText);
 
+    removeDOMElement(e);
     //If I click leter A, Check if letter is in the array
     //if letter is in array. Append to the div that has array letter
     word.forEach((letter) => {
       if (letter === e.target.textContent) {
         const spans = document.querySelectorAll("span");
-
+        // console.log(e.path[0].innerText);
+        // wrongGuess();
         //remove hidden class so that populated letter appears letter
         spans.forEach((span) => {
           if (span.textContent === e.target.textContent) {
             span.classList.remove("hidden");
             textAnnouncer.textContent = `Letter ${span.textContent} is Correct!! Choose Another Letter.`;
-            // if (e.path[0].innerText.innerText === span.textContent) {
-            // console.log(e.target.textContent);
-            // }
           }
+          let currentLetter = e.path[0].innerText;
+          if (currentLetter !== span.textContent) {
+            console.log(`letter is b`);
+          }
+          // console.log(e.path[0].innerText);
+          checkWinner();
         });
       }
+      // function wrongGuess() {
+      //   if(e.path[0].innerText)
+      //   console.log(`wrongguess`);
+      // }
     });
-
-    removeDOMElement(e);
-
     // e.path[0].innerText
     // event.target.textAnnouncer.textContent = `nope`
   });
-
-  // e.target.classList.remove("hidden");
 });
+function checkWinner() {}
+
+// e.target.classList.remove("hidden");
+
 // console.log(`${letter} is letter.`);
 // console.log(`${e.target.textContent} is target content.`);
 
