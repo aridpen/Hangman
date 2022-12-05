@@ -8,11 +8,11 @@ const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 //create at least 5 word options (array)
 const words = [
   "taco",
-  "marshmallow",
-  "turducken",
-  "ramen",
-  "lasagna",
-  "chipotle",
+  // "marshmallow",
+  // "turducken",
+  // "ramen",
+  // "lasagna",
+  // "chipotle",
 ];
 
 let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
@@ -44,38 +44,46 @@ let letters = document.querySelectorAll(".letter");
 function removeDOMElement(event) {
   event.target.remove();
 }
+
 //when block is clicked, letter is removed from the screen
 letters.forEach((letter) => {
   letter.addEventListener("click", (e) => {
     e.preventDefault();
+    // console.log(e.path[0].innerText);
+
     //If I click leter A, Check if letter is in the array
     //if letter is in array. Append to the div that has array letter
     word.forEach((letter) => {
-      //for each letter in word..
       if (letter === e.target.textContent) {
         const spans = document.querySelectorAll("span");
+
+        //remove hidden class so that populated letter appears letter
         spans.forEach((span) => {
-          //remove hidden class so that populated letter appears letter
           if (span.textContent === e.target.textContent) {
             span.classList.remove("hidden");
-            if (span.textContent === e.target.textContent) {
-              textAnnouncer.textContent = `Letter ${span.textContent} is Correct!! Choose Another Letter.`;
-            }
+            textAnnouncer.textContent = `Letter ${span.textContent} is Correct!! Choose Another Letter.`;
+            // if (e.path[0].innerText.innerText === span.textContent) {
+            // console.log(e.target.textContent);
+            // }
           }
         });
       }
-
-      removeDOMElement(e);
-
-      // e.target.classList.remove("hidden");
     });
-    // console.log(`${letter} is letter.`);
-    // console.log(`${e.target.textContent} is target content.`);
-  });
-  //only allow 6 incorrect guesses
 
-  //if player selects the wrong letter 6 times game ends
+    removeDOMElement(e);
+
+    // e.path[0].innerText
+    // event.target.textAnnouncer.textContent = `nope`
+  });
+
+  // e.target.classList.remove("hidden");
 });
+// console.log(`${letter} is letter.`);
+// console.log(`${e.target.textContent} is target content.`);
+
+//only allow 6 incorrect guesses
+
+//if player selects the wrong letter 6 times game ends
 
 //reset game with play again// window.location.reload() refreshes page back to beginning state.
 playAgain.addEventListener("click", function () {
