@@ -3,6 +3,7 @@ const letterContainer = document.querySelector(".letter-container");
 const textAnnouncer = document.querySelector(".text-announcer");
 const playAgain = document.querySelector(".play-again");
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+const wrongAnswer = document.querySelector(".wrong-answer");
 let wrongGuessCount = 0;
 //create at least 5 word options (array)
 const words = [
@@ -14,7 +15,6 @@ const words = [
   // "chipotle",
 ];
 let rightGuessCount = words.length;
-console.log(words.length);
 let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
 let word = words[randomWord].split(""); //string method split turns word to an array of strings "T","A","C","O"
 
@@ -63,21 +63,31 @@ letters.forEach((letter) => {
       switch (wrongGuessCount) {
         case 1:
           document.getElementById("1").classList.remove("hidden");
+          wrongAnswer.textContent = `Wrong Answers: 1 of 6`;
           break;
         case 2:
           document.getElementById("4").classList.remove("hidden");
+          wrongAnswer.textContent = `Wrong Answers: 2 of 6`;
+
           break;
         case 3:
           document.getElementById("6").classList.remove("hidden");
+          wrongAnswer.textContent = `Wrong Answers: 3 of 6`;
+
           break;
         case 4:
           document.getElementById("3").classList.remove("hidden");
+          wrongAnswer.textContent = `Wrong Answers: 4 of 6`;
+
           break;
         case 5:
           document.getElementById("2").classList.remove("hidden");
+          wrongAnswer.textContent = `Wrong Answers: 5 of 6`;
+
           break;
         case 6:
           document.getElementById("5").classList.remove("hidden");
+          wrongAnswer.textContent = `Wrong Answers: 6 of 6`;
       }
       if (wrongGuessCount > 5) {
         gameOver();
@@ -92,7 +102,6 @@ letters.forEach((letter) => {
   });
 });
 function checkForWin() {}
-
 function gameWon() {
   //when all correct letters are selected
   //there were less than 6 wrong answers
@@ -103,6 +112,8 @@ playAgain.addEventListener("click", function () {
   window.location.reload();
 });
 
+// document.querySelector(".guess-container").classList.contains("hidden"));
+// console.log(`you win!`
 //MVP GOALS
 //if array contains the textContent of the clicked letter, toggle hidden off
 //when correct letter is clicked, letter will populate on underscores//itterate over a word
