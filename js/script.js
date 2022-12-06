@@ -51,9 +51,10 @@ letters.forEach((letter) => {
     let letter = e.target.textContent; //set letter to the text content of letter clicked(event.target)
     let letterIndex = word.indexOf(letter); //set letterIndex to the index postion of clicked letter
     if (letterIndex !== -1) {
-      //letters found in array will never have an index of -1 so by default wrong letters will be false
+      //The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
       spans[letterIndex].classList.remove("hidden"); //remove correct letter from hidden class so that it shows on the line.
       removeDOMElement(e);
+      checkForWin();
       textAnnouncer.textContent = `Letter ${letter} is Correct!! Choose Another Letter.`;
     } else {
       removeDOMElement(e);
@@ -80,10 +81,6 @@ letters.forEach((letter) => {
       }
       if (wrongGuessCount > 5) {
         gameOver();
-        // } else if (guessContainer !== "")
-        // console.log(`winner winner`);
-        // console.log(guessConatiner);
-
         // if (wrongGuessCount > 5) {
         //   console.log(`locos taco`);
         // }
@@ -94,8 +91,14 @@ letters.forEach((letter) => {
     }
   });
 });
+function checkForWin() {}
 
-//window reload is a no no :(
+function gameWon() {
+  //when all correct letters are selected
+  //there were less than 6 wrong answers
+  //print game win
+  //reset game
+}
 playAgain.addEventListener("click", function () {
   window.location.reload();
 });

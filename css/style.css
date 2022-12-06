@@ -63,41 +63,74 @@ body {
  .gallow-container{
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 100px);
+  grid-template-columns: repeat(7, 100px);
+  grid-template-rows: repeat(8, 100px);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
     }
-    .div1 { 
-      grid-area: 1 / 4 / 2 / 4; 
-      background-image: url("../img/gallow.PNG");
+    .div2 {
+      grid-area: 3 / 4 / 5 / 7; 
+      background-image: url("../img/head.png");
       background-repeat: no-repeat;
-      background-size:contain;
-      background-position: center center;
-
-
+      background-size:250px;
+      background-position: center center; 
+      position: relative;
+      margin-right: 5px;
+      
     }
-    .div2 { 
-    grid-area:2 / 4 / 4 / 5;
-    background-image: url("../img/leftarm.png");
-    background-repeat: no-repeat;
-    background-size:contain;
-    background-position: center center;
+    .div3 { 
+      grid-area: 5/ 3 / 8 / 7;
+      background-image: url("../img/ltchickenleg.png");
+       background-repeat: no-repeat;
+       background-size:250px;
+       background-position: center center;
+    }
+  
+    .div7 { 
+      grid-area:3 / 4 / 7 / 8;
+      background-image: url("../img/leftarm.png");
+      background-repeat: no-repeat;
+      background-size:200px;
+      background-position: center center
+    
+      /* width: -350px; */
+     }
+   
+    .div5 {
+      grid-area: 4 / 4 / 6 / 7; 
+      background-image: url("../img/body.png");
+       background-repeat: no-repeat;
+       background-size:260px;
+       background-position: center center; 
+    }
+    .div8 { 
+      grid-area: 1 / 1 / 8 / 7; 
+      background-image: url("../img/Pixelcut-0\ 4.png");
+      background-repeat: no-repeat;
+      background-size: 800px;
+      background-position: center center;
+      margin-top: 70px;
+    }
 
-   }
-    .div3 {
-       grid-area: 2 / 3 / 4 / 3; 
+    .div4 {
+       grid-area: 4 / 3/ 6 /6; 
        background-image: url("../img/rightarm.png");
        background-repeat: no-repeat;
-       background-size:contain;
+       background-size:200px;
        background-position: center center;
 
       }
       
-    .div4 { grid-area: 2 / 3 / 6 / 4; }
-    .div5 { grid-area: 4 / 4 / 6 / 5; }
-    .div6 { grid-area: 4 / 2 / 6 / 3; }
+ 
 
+    .div6 {
+      grid-area: 5 / 4 / 8 / 8; 
+      background-image: url("../img/rtleg.png");
+       background-repeat: no-repeat;
+       background-size:250px;
+       background-position: center center; 
+    }
+    
 
 
 .btn-container{
