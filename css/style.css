@@ -8,7 +8,7 @@ body {
   background-color: aliceblue;
   margin:auto;
   text-align: center;
-  padding: 50px;
+  padding: 100px;
 
 }
 
@@ -60,6 +60,44 @@ body {
  .hidden{
   visibility: hidden;
  }
+ .gallow-container{
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+    }
+    .div1 { 
+      grid-area: 1 / 4 / 2 / 4; 
+      background-image: url("../img/gallow.PNG");
+      background-repeat: no-repeat;
+      background-size:contain;
+      background-position: center center;
+
+
+    }
+    .div2 { 
+    grid-area:2 / 4 / 4 / 5;
+    background-image: url("../img/leftarm.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center center;
+
+   }
+    .div3 {
+       grid-area: 2 / 3 / 4 / 3; 
+       background-image: url("../img/rightarm.png");
+       background-repeat: no-repeat;
+       background-size:contain;
+       background-position: center center;
+
+      }
+      
+    .div4 { grid-area: 2 / 3 / 6 / 4; }
+    .div5 { grid-area: 4 / 4 / 6 / 5; }
+    .div6 { grid-area: 4 / 2 / 6 / 3; }
+
 
 
 .btn-container{
@@ -71,7 +109,7 @@ body {
 }
 
 h1{
-  font-size: 50px;
+  font-size: 100px;
 }
 /* .letterOptions {
   display: grid;
