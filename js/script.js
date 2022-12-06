@@ -65,19 +65,19 @@ letters.forEach((letter) => {
           document.getElementById("1").classList.remove("hidden");
           break;
         case 2:
-          document.getElementById("2").classList.remove("hidden");
-          break;
-        case 3:
-          document.getElementById("3").classList.remove("hidden");
-          break;
-        case 4:
           document.getElementById("4").classList.remove("hidden");
           break;
-        case 5:
-          document.getElementById("5").classList.remove("hidden");
+        case 3:
+          document.getElementById("6").classList.remove("hidden");
           break;
-        default:
-          textAnnouncer.textContent = `Too many guesses!!`;
+        case 4:
+          document.getElementById("3").classList.remove("hidden");
+          break;
+        case 5:
+          document.getElementById("2").classList.remove("hidden");
+          break;
+        case 6:
+          document.getElementById("5").classList.remove("hidden");
       }
       if (wrongGuessCount > 5) {
         gameOver();
