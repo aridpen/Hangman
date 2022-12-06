@@ -22,21 +22,24 @@ body {
 
 .letter-container{
   color: red;
+  font-size: 41px;
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(10, minmax(0, 1fr));
   grid-template-rows: repeat(3, minmax(0, 1fr));
   grid-column-gap: 5px;
   grid-row-gap: 10px;
-  text-align: center;
-  max-width: 25%; 
+  max-width: 40%; 
   cursor: pointer;
   
 }
 .letter{
+  display: flex;
   border: 1px solid black;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -46,6 +49,7 @@ body {
   display:flex;
   margin: 0 auto;
   margin-bottom:60px;
+
   
 }
 .answer-letter{
@@ -55,7 +59,9 @@ body {
   width: 60px;
   height:60px;
   border-bottom: 4px solid black;
-  margin: 0 15px 0 15px
+  margin: 0 15px 0 15px;
+  font-size: 80px;
+
 }
  .hidden{
   visibility: hidden;
@@ -129,14 +135,15 @@ body {
   font-size: 50px;
 }
       
- 
-
-  
-    
-
-
 .btn-container{
   margin-top: 30px;
+}
+.play-again{
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  
 }
 
 .text-announcer{

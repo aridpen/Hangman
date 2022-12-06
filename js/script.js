@@ -4,17 +4,12 @@ const textAnnouncer = document.querySelector(".text-announcer");
 const playAgain = document.querySelector(".play-again");
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 const wrongAnswer = document.querySelector(".wrong-answer");
+const rightWord = document.querySelector(".answer-letter");
 let wrongGuessCount = 0;
+let counter = 0;
 //create at least 5 word options (array)
-const words = [
-  "taco",
-  // "marshmallow",
-  // "turducken",
-  // "ramen",
-  // "lasagna",
-  // "chipotle",
-];
-let rightGuessCount = words.length;
+const words = ["taco", "ramen", "chipotle"];
+
 let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
 let word = words[randomWord].split(""); //string method split turns word to an array of strings "T","A","C","O"
 
@@ -31,6 +26,7 @@ word.forEach((char) => {
   const guessContainer = document.querySelector(".guess-container");
   letterContainer.append(span);
   guessContainer.append(letterContainer);
+  // console.log(span.classList.contains('hidden'))
 });
 
 alphabet.forEach((char) => {
@@ -50,12 +46,14 @@ letters.forEach((letter) => {
     const spans = document.querySelectorAll("span");
     let letter = e.target.textContent; //set letter to the text content of letter clicked(event.target)
     let letterIndex = word.indexOf(letter); //set letterIndex to the index postion of clicked letter
+
     if (letterIndex !== -1) {
       //The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
       spans[letterIndex].classList.remove("hidden"); //remove correct letter from hidden class so that it shows on the line.
       removeDOMElement(e);
-      checkForWin();
       textAnnouncer.textContent = `Letter ${letter} is Correct!! Choose Another Letter.`;
+      counter++;
+      checkForWin();
     } else {
       removeDOMElement(e);
       textAnnouncer.textContent = `Oh NO! ${letter} is NOT correct!! Choose Another Letter.`;
@@ -88,30 +86,25 @@ letters.forEach((letter) => {
         case 6:
           document.getElementById("5").classList.remove("hidden");
           wrongAnswer.textContent = `Wrong Answers: 6 of 6`;
+          textAnnouncer.textContent = `GAME OVER!! Play Again`;
       }
-      if (wrongGuessCount > 5) {
-        gameOver();
-        // if (wrongGuessCount > 5) {
-        //   console.log(`locos taco`);
-        // }
-      }
-    }
-    function gameOver() {
-      textAnnouncer.textContent = `GAME OVER!! Play Again`;
     }
   });
 });
-function checkForWin() {}
-function gameWon() {
-  //when all correct letters are selected
-  //there were less than 6 wrong answers
-  //print game win
-  //reset game
+function checkForWin() {
+  if (word.length === counter) {
+    textAnnouncer.textContent = `you win!`;
+  }
 }
-playAgain.addEventListener("click", function () {
-  window.location.reload();
-});
+function gameReset() {
+  playAgain.addEventListener("click", function () {
+    counter = 0;
+    wrongGuessCount = 0;
+  });
+}
+gameReset();
 
+// console.log(word);
 // document.querySelector(".guess-container").classList.contains("hidden"));
 // console.log(`you win!`
 //MVP GOALS
