@@ -57,13 +57,12 @@ let letters = document.querySelectorAll(".letter");
 function removeDOMElement(event) {
   event.target.remove();
 }
-//START
+
 function startGame() {
   console.log("gameStart");
   letters.forEach((letter) => {
     //adding event listener to each letter
     letter.addEventListener("click", (e) => {
-      console.log("clicked");
       const spans = document.querySelectorAll("span");
       let letter = e.target.textContent; //set letter to the text content of letter clicked(event.target)
       let letterIndex = word.indexOf(letter); //set letterIndex to the index postion of clicked letter
@@ -109,7 +108,7 @@ function startGame() {
     });
   });
 }
-//END
+
 startGame();
 function checkForWin() {
   if (word.length === counter) {
@@ -140,9 +139,7 @@ function resetGame() {
 playAgain.addEventListener("click", function () {
   resetGame();
 });
-// console.log(word);
-// document.querySelector(".guess-container").classList.contains("hidden"));
-// console.log(`you win!`
+
 //MVP GOALS
 //if array contains the textContent of the clicked letter, toggle hidden off
 //when correct letter is clicked, letter will populate on underscores//itterate over a word
