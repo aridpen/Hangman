@@ -2,17 +2,19 @@
 const letterContainer = document.querySelector(".letter-container");
 const textAnnouncer = document.querySelector(".text-announcer");
 const playAgain = document.querySelector(".play-again");
-const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const wrongAnswer = document.querySelector(".wrong-answer");
 const rightWord = document.querySelector(".answer-letter");
 let wrongGuessCount = 0;
 let counter = 0;
 //create at least 5 word options (array)
-let words = ["taco", "ramen", "chipotle", "omlet", "orange"];
+let words = ["TACO", "RAMEN", "CHIPOTLE", "OMLET", "ORANGE"];
 
 let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
 let word = words[randomWord].split(""); //string method split turns word to an array of strings "T","A","C","O"
+let completeWord = word.join("");
 
+console.log(completeWord);
 //foreach letter (character) in word array create a div and append to guess-container
 //need span to allow letter textContent to work properly. otherwise whole div disapears on hidden.
 //created span element thst has a textContent of character. span is added to hidden classlist
@@ -111,7 +113,7 @@ function startGame() {
 startGame();
 function checkForWin() {
   if (word.length === counter) {
-    textAnnouncer.textContent = `you win!`;
+    textAnnouncer.textContent = `You Guessed It! ${completeWord} Is The Correct Word!`;
   }
 }
 function resetGame() {
