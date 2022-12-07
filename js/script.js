@@ -8,7 +8,7 @@ const rightWord = document.querySelector(".answer-letter");
 let wrongGuessCount = 0;
 let counter = 0;
 //create at least 5 word options (array)
-const words = ["taco", "ramen", "chipotle"];
+let words = ["taco", "ramen", "chipotle", "omlet", "orange"];
 
 let randomWord = Math.floor(Math.random() * words.length); //random word choosen at random from the listed array of words
 let word = words[randomWord].split(""); //string method split turns word to an array of strings "T","A","C","O"
@@ -16,94 +16,128 @@ let word = words[randomWord].split(""); //string method split turns word to an a
 //foreach letter (character) in word array create a div and append to guess-container
 //need span to allow letter textContent to work properly. otherwise whole div disapears on hidden.
 //created span element thst has a textContent of character. span is added to hidden classlist
-
-word.forEach((char) => {
-  const letterContainer = document.createElement("div");
-  const span = document.createElement("span");
-  span.textContent = char;
-  span.classList.add("hidden");
-  letterContainer.classList.add("answer-letter");
+function wordSetter() {
   const guessContainer = document.querySelector(".guess-container");
-  letterContainer.append(span);
-  guessContainer.append(letterContainer);
-  // console.log(span.classList.contains('hidden'))
-});
-
-alphabet.forEach((char) => {
-  const letterBoxes = document.createElement("div");
-  letterBoxes.classList.add("letter");
-  letterBoxes.textContent = char;
-  letterContainer.append(letterBoxes);
-});
+  let child = guessContainer.lastElementChild;
+  //while child is present in array, will remove whatever child
+  while (child) {
+    guessContainer.removeChild(child);
+    child = guessContainer.lastElementChild;
+  }
+  word.forEach((char) => {
+    const letterContainer = document.createElement("div");
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.classList.add("hidden");
+    letterContainer.classList.add("answer-letter");
+    letterContainer.append(span);
+    guessContainer.append(letterContainer);
+    // console.log(span.classList.contains('hidden'))
+  });
+}
+wordSetter();
+function alphabetSetter() {
+  let child = letterContainer.lastElementChild;
+  //while child is present in array, will remove whatever child //make a helper function
+  while (child) {
+    letterContainer.removeChild(child);
+    child = letterContainer.lastElementChild;
+  }
+  alphabet.forEach((char) => {
+    const letterBoxes = document.createElement("div");
+    letterBoxes.classList.add("letter");
+    letterBoxes.textContent = char;
+    letterContainer.append(letterBoxes);
+  });
+}
+alphabetSetter();
 let letters = document.querySelectorAll(".letter");
 function removeDOMElement(event) {
   event.target.remove();
 }
+//START
+function startGame() {
+  console.log("gameStart");
+  letters.forEach((letter) => {
+    //adding event listener to each letter
+    letter.addEventListener("click", (e) => {
+      console.log("clicked");
+      const spans = document.querySelectorAll("span");
+      let letter = e.target.textContent; //set letter to the text content of letter clicked(event.target)
+      let letterIndex = word.indexOf(letter); //set letterIndex to the index postion of clicked letter
 
-letters.forEach((letter) => {
-  //adding event listener to each letter
-  letter.addEventListener("click", (e) => {
-    const spans = document.querySelectorAll("span");
-    let letter = e.target.textContent; //set letter to the text content of letter clicked(event.target)
-    let letterIndex = word.indexOf(letter); //set letterIndex to the index postion of clicked letter
-
-    if (letterIndex !== -1) {
-      //The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
-      spans[letterIndex].classList.remove("hidden"); //remove correct letter from hidden class so that it shows on the line.
-      removeDOMElement(e);
-      textAnnouncer.textContent = `Letter ${letter} is Correct!! Choose Another Letter.`;
-      counter++;
-      checkForWin();
-    } else {
-      removeDOMElement(e);
-      textAnnouncer.textContent = `Oh NO! ${letter} is NOT correct!! Choose Another Letter.`;
-      wrongGuessCount++;
-      switch (wrongGuessCount) {
-        case 1:
-          document.getElementById("1").classList.remove("hidden");
-          wrongAnswer.textContent = `Wrong Answers: 1 of 6`;
-          break;
-        case 2:
-          document.getElementById("4").classList.remove("hidden");
-          wrongAnswer.textContent = `Wrong Answers: 2 of 6`;
-
-          break;
-        case 3:
-          document.getElementById("6").classList.remove("hidden");
-          wrongAnswer.textContent = `Wrong Answers: 3 of 6`;
-
-          break;
-        case 4:
-          document.getElementById("3").classList.remove("hidden");
-          wrongAnswer.textContent = `Wrong Answers: 4 of 6`;
-
-          break;
-        case 5:
-          document.getElementById("2").classList.remove("hidden");
-          wrongAnswer.textContent = `Wrong Answers: 5 of 6`;
-
-          break;
-        case 6:
-          document.getElementById("5").classList.remove("hidden");
-          wrongAnswer.textContent = `Wrong Answers: 6 of 6`;
-          textAnnouncer.textContent = `GAME OVER!! Play Again`;
+      if (letterIndex !== -1) {
+        //The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+        spans[letterIndex].classList.remove("hidden"); //remove correct letter from hidden class so that it shows on the line.
+        removeDOMElement(e);
+        textAnnouncer.textContent = `Letter ${letter} is Correct!! Choose Another Letter.`;
+        counter++;
+        checkForWin();
+      } else {
+        removeDOMElement(e);
+        textAnnouncer.textContent = `Oh NO! ${letter} is NOT correct!! Choose Another Letter.`;
+        wrongGuessCount++;
+        switch (wrongGuessCount) {
+          case 1:
+            document.getElementById("1").classList.remove("hidden");
+            wrongAnswer.textContent = `Wrong Answers: 1 of 6`;
+            break;
+          case 2:
+            document.getElementById("4").classList.remove("hidden");
+            wrongAnswer.textContent = `Wrong Answers: 2 of 6`;
+            break;
+          case 3:
+            document.getElementById("6").classList.remove("hidden");
+            wrongAnswer.textContent = `Wrong Answers: 3 of 6`;
+            break;
+          case 4:
+            document.getElementById("3").classList.remove("hidden");
+            wrongAnswer.textContent = `Wrong Answers: 4 of 6`;
+            break;
+          case 5:
+            document.getElementById("2").classList.remove("hidden");
+            wrongAnswer.textContent = `Wrong Answers: 5 of 6`;
+            break;
+          case 6:
+            document.getElementById("5").classList.remove("hidden");
+            wrongAnswer.textContent = `Wrong Answers: 6 of 6`;
+            textAnnouncer.textContent = `GAME OVER!! Play Again`;
+        }
       }
-    }
+    });
   });
-});
+}
+//END
+startGame();
 function checkForWin() {
   if (word.length === counter) {
     textAnnouncer.textContent = `you win!`;
   }
 }
-function gameReset() {
-  playAgain.addEventListener("click", function () {
-    counter = 0;
-    wrongGuessCount = 0;
+function resetGame() {
+  wrongGuessCount = 0;
+  counter = 0;
+  randomWord = Math.floor(Math.random() * words.length);
+  word = words[randomWord].split("");
+  //reset all global variables
+  //wrong answer reset to intial value
+  wrongAnswer.textContent = `Category: Food`;
+  //textannouncer reset to initial value
+  textAnnouncer.textContent = `Click A Letter To Reveal The Hidden Word!`;
+  //all images go back to hidden
+  let images = document.querySelectorAll(".img");
+  images.forEach((img) => {
+    img.classList.add("hidden");
   });
+  wordSetter();
+  //display all buttons
+  alphabetSetter();
+  letters = document.querySelectorAll(".letter");
+  startGame();
 }
-gameReset();
-
+playAgain.addEventListener("click", function () {
+  resetGame();
+});
 // console.log(word);
 // document.querySelector(".guess-container").classList.contains("hidden"));
 // console.log(`you win!`
