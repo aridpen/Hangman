@@ -40,9 +40,7 @@ Hanging around with nothing to do? Take a jab a guessing the correct word below!
   https://aridpen.github.io/Hangman/
 
 ##Sources
-*Debug Chat
-*Office Hours
-*index of method by Jay Womack
+Debug Chat, Office Hours, index of method by Jay Womack
 
 -letters.forEach((letter) => {
 -letter.addEventListener('click', (e) => {
