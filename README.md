@@ -40,21 +40,21 @@ Hanging around with nothing to do? Take a jab a guessing the correct word below!
   https://aridpen.github.io/Hangman/
 
 ##Sources
-Debug Chat
-Office Hours
-index of method by Jay Womack
+-Debug Chat
+-Office Hours
+-index of method by Jay Womack
 
-letters.forEach((letter) => {
-letter.addEventListener('click', (e) => {
-let letter = e.target.textContent
-let letterIndex = word.indexOf(letter)
-if (letterIndex !== -1) {
-spans[letterIndex].classList.remove('hidden')
-removeDOMElement(e)
-textAnnouncer.textContent = 'You got it!'
-} else {
-removeDOMElement(e)
-textAnnouncer.textContent = 'Try again!'
-}
-})
-})
+-letters.forEach((letter) => {
+-letter.addEventListener('click', (e) => {
+-let letter = e.target.textContent
+-let letterIndex = word.indexOf(letter)
+-if (letterIndex !== -1) {
+-spans[letterIndex].classList.remove('hidden')
+-removeDOMElement(e)
+-textAnnouncer.textContent = 'You got it!'
+-} else {
+-removeDOMElement(e)
+-textAnnouncer.textContent = 'Try again!'
+-}
+-})
+-})
